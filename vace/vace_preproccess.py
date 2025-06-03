@@ -213,7 +213,7 @@ def main(args):
                 input_data['mask_cfg'] = {"mode": args.maskaug_mode}
 
     # processing
-    pre_ins = getattr(annotators, class_name)(cfg=task_cfg, device=f'cuda:{os.getenv("RANK", 0)}')
+    pre_ins = getattr(annotators, class_name)(cfg=task_cfg)
     results = pre_ins.forward(**input_data)
 
     # output data
