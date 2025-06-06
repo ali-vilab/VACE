@@ -10,7 +10,7 @@ class DepthAnnotator:
     def __init__(self, cfg, device=None):
         from .midas.api import MiDaSInference
         pretrained_model = cfg['PRETRAINED_MODEL']
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else (torch.device(device) if isinstance(device, str) else device) 
         self.model = MiDaSInference(model_type='dpt_hybrid', model_path=pretrained_model).to(self.device)
         self.a = cfg.get('A', np.pi * 2.0)
         self.bg_th = cfg.get('BG_TH', 0.1)
@@ -53,7 +53,7 @@ class DepthV2Annotator:
     def __init__(self, cfg, device=None):
         from .depth_anything_v2.dpt import DepthAnythingV2
         pretrained_model = cfg['PRETRAINED_MODEL']
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else (torch.device(device) if isinstance(device, str) else device)
         self.model = DepthAnythingV2(encoder='vitl', features=256, out_channels=[256, 512, 1024, 1024]).to(self.device)
         self.model.load_state_dict(
             torch.load(
