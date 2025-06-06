@@ -34,7 +34,7 @@ def dict_to_markdown_table(d):
 
 
 class VACEImageTag():
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         self.save_dir = os.path.join(cfg.save_dir, 'image')
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)
@@ -320,7 +320,7 @@ class VACEImageTag():
 
 
 class VACEVideoTag():
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         self.save_dir = os.path.join(cfg.save_dir, 'video')
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)
@@ -651,7 +651,7 @@ class VACEVideoTag():
 
 
 class VACETagComposition():
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         self.save_dir = os.path.join(cfg.save_dir, 'composition')
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)
@@ -805,7 +805,7 @@ class VACETagComposition():
 
 
 class VACEVideoTool():
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         self.save_dir = os.path.join(cfg.save_dir, 'video_tool')
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)
@@ -1031,7 +1031,7 @@ class VACEVideoTool():
 
 class VACETag():
 
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         self.cfg = cfg
         self.save_dir = cfg.save_dir
         self.current_index = 0

@@ -23,7 +23,7 @@ class GDINOAnnotator:
         self.text_threshold = cfg.get('TEXT_THRESHOLD', 0.2)
         self.iou_threshold = cfg.get('IOU_THRESHOLD', 0.5)
         self.use_nms = cfg.get('USE_NMS', True)
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else (torch.device(device) if isinstance(device, str) else device)
         self.model = Model(model_config_path=grounding_dino_config_path,
                            model_checkpoint_path=grounding_dino_checkpoint_path,
                            device=self.device)

@@ -15,7 +15,7 @@ class FaceAnnotator:
         self.return_dict = cfg.get('RETURN_DICT', False)
         self.multi_face = cfg.get('MULTI_FACE', True)
         pretrained_model = cfg['PRETRAINED_MODEL']
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else (torch.device(device) if isinstance(device, str) else device)
         self.device_id = self.device.index if self.device.type == 'cuda' else None
         ctx_id = self.device_id if self.device_id is not None else 0
         self.model = FaceAnalysis(name=cfg.MODEL_NAME, root=pretrained_model, providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])

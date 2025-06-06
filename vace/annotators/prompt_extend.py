@@ -10,7 +10,7 @@ class PromptExtendAnnotator:
         self.model_name = cfg.get('MODEL_NAME', "Qwen2.5_3B")
         self.is_vl = cfg.get('IS_VL', False)
         self.system_prompt = cfg.get('SYSTEM_PROMPT', None)
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else (torch.device(device) if isinstance(device, str) else device)
         self.device_id = self.device.index if self.device.type == 'cuda' else None
         rank = self.device_id if self.device_id is not None else 0
         if self.mode == "dashscope":

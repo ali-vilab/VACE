@@ -3,7 +3,7 @@
 import numpy as np
 
 class CompositionAnnotator:
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         self.process_types = ["repaint", "extension", "control"]
         self.process_map = {
             "repaint": "repaint",
@@ -44,7 +44,7 @@ class CompositionAnnotator:
 
 
 class ReferenceAnythingAnnotator:
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         from .subject import SubjectAnnotator
         self.sbjref_ins = SubjectAnnotator(cfg['SUBJECT'] if 'SUBJECT' in cfg else cfg)
         self.key_map = {
@@ -74,7 +74,7 @@ class ReferenceAnythingAnnotator:
 
 
 class AnimateAnythingAnnotator:
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         from .pose import PoseBodyFaceVideoAnnotator
         self.pose_ins = PoseBodyFaceVideoAnnotator(cfg['POSE'])
         self.ref_ins = ReferenceAnythingAnnotator(cfg['REFERENCE'])
@@ -91,7 +91,7 @@ class AnimateAnythingAnnotator:
 
 
 class SwapAnythingAnnotator:
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         from .inpainting import InpaintingVideoAnnotator
         self.inp_ins = InpaintingVideoAnnotator(cfg['INPAINTING'])
         self.ref_ins = ReferenceAnythingAnnotator(cfg['REFERENCE'])
@@ -110,7 +110,7 @@ class SwapAnythingAnnotator:
 
 
 class ExpandAnythingAnnotator:
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         from .outpainting import OutpaintingAnnotator
         from .frameref import FrameRefExpandAnnotator
         self.ref_ins = ReferenceAnythingAnnotator(cfg['REFERENCE'])
@@ -137,7 +137,7 @@ class ExpandAnythingAnnotator:
 
 
 class MoveAnythingAnnotator:
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         from .layout import LayoutBboxAnnotator
         self.layout_bbox_ins = LayoutBboxAnnotator(cfg['LAYOUTBBOX'])
 

@@ -7,7 +7,7 @@ from .utils import convert_to_numpy
 
 
 class GrayAnnotator:
-    def __init__(self, cfg):
+    def __init__(self, cfg, device=None):
         pass
     def forward(self, image):
         image = convert_to_numpy(image)
