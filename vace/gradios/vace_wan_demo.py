@@ -208,7 +208,8 @@ class VACEInference:
                                                                          [src_mask],
                                                                          [src_ref_images],
                                                                          num_frames=num_frames,
-                                                                         image_size=SIZE_CONFIGS[f"{output_width}*{output_height}"],
+                                                                         #image_size=SIZE_CONFIGS[f"{output_width}*{output_height}"],
+                                                                         image_size=(output_width, output_height), # 20250613 pftq: Use width/height from user input
                                                                          device=self.pipe.device)
         video = self.pipe.generate(
             prompt,
@@ -216,6 +217,7 @@ class VACEInference:
             src_mask,
             src_ref_images,
             size=(output_width, output_height),
+            frame_num = num_frames, # 20250613 pftq: Use frame number input from user input
             context_scale=context_scale,
             shift=shift_scale,
             sampling_steps=sample_steps,
@@ -224,8 +226,11 @@ class VACEInference:
             seed=infer_seed,
             offload_model=True)
 
-        name = '{0:%Y%m%d%H%M%S}'.format(datetime.datetime.now())
-        video_path = os.path.join(self.save_dir, f'cur_gallery_{name}.mp4')
+        #name = '{0:%Y%m%d%H%M%S}'.format(datetime.datetime.now())
+        #video_path = os.path.join(self.save_dir, f'cur_gallery_{name}.mp4')
+        # 20250613 pftq: friendlier filenames
+        name = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")+f'_wan-vace_context-{context_scale}_cfg-{guide_scale}_steps-{sample_steps}_seed-{infer_seed}'
+        video_path = os.path.join(self.save_dir, f'{name}.mp4')
         video_frames = (torch.clamp(video / 2 + 0.5, min=0.0, max=1.0).permute(1, 2, 3, 0) * 255).cpu().numpy().astype(np.uint8)
 
         try:
