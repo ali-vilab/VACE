@@ -471,7 +471,7 @@ class WanVaceMP(WanVace):
     def dynamic_load(self):
         if hasattr(self, 'inference_pids') and self.inference_pids is not None:
             return
-        gpu_infer = os.environ.get('LOCAL_WORLD_SIZE') or torch.cuda.device_count()
+        gpu_infer = int(os.environ.get('LOCAL_WORLD_SIZE', torch.cuda.device_count()))
         pmi_rank = int(os.environ['RANK'])
         pmi_world_size = int(os.environ['WORLD_SIZE'])
         in_q_list = [torch.multiprocessing.Manager().Queue() for _ in range(gpu_infer)]
