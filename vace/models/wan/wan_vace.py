@@ -445,11 +445,10 @@ class WanVaceMP(WanVace):
         self.config = config
         self.checkpoint_dir = checkpoint_dir
         self.use_usp = use_usp
-        if ulysses_size is None or ulysses_size == 1: # 20250613 pftq: fix multi-gpu gradio timeout
-            os.environ['MASTER_ADDR'] = 'localhost'
-            os.environ['MASTER_PORT'] = '12345'
-            os.environ['RANK'] = '0'
-            os.environ['WORLD_SIZE'] = '1'
+        os.environ['MASTER_ADDR'] = 'localhost'
+        os.environ['MASTER_PORT'] = '12345'
+        os.environ['RANK'] = '0'
+        os.environ['WORLD_SIZE'] = '1'
         self.in_q_list = None
         self.out_q = None
         self.inference_pids = None
