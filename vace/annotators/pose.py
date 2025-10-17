@@ -36,7 +36,7 @@ class PoseAnnotator:
     def __init__(self, cfg, device=None):
         onnx_det = cfg['DETECTION_MODEL']
         onnx_pose = cfg['POSE_MODEL']
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else (torch.device(device) if isinstance(device, str) else device)
         self.pose_estimation = Wholebody(onnx_det, onnx_pose, device=self.device)
         self.resize_size = cfg.get("RESIZE_SIZE", 1024)
         self.use_body = cfg.get('USE_BODY', True)

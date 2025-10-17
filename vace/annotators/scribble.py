@@ -105,7 +105,7 @@ class ScribbleAnnotator:
         n_residual_blocks = cfg.get('N_RESIDUAL_BLOCKS', 3)
         sigmoid = cfg.get('SIGMOID', True)
         pretrained_model = cfg['PRETRAINED_MODEL']
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if device is None else (torch.device(device) if isinstance(device, str) else device)
         self.model = ContourInference(input_nc, output_nc, n_residual_blocks,
                                       sigmoid)
         self.model.load_state_dict(torch.load(pretrained_model, weights_only=True))

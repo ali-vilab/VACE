@@ -456,7 +456,7 @@ class WanVaceMP(WanVace):
         self.ring_size = ring_size
         self.dynamic_load()
 
-        self.device = 'cpu' if torch.cuda.is_available() else 'cpu'
+        self.device = 'gpu' if torch.cuda.is_available() else 'cpu'
         self.vid_proc = VaceVideoProcessor(
             downsample=tuple([x * y for x, y in zip(config.vae_stride, config.patch_size)]),
             min_area=720 * 1280,
