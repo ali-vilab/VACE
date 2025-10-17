@@ -1,6 +1,7 @@
 <p align="center">
 
 <h1 align="center">VACE: All-in-One Video Creation and Editing</h1>
+<h3 align="center">(ICCV 2025)</h3>
 <p align="center">
     <strong>Zeyinzi Jiang<sup>*</sup></strong>
     ·
@@ -32,6 +33,8 @@
 
 
 ## 🎉 News
+- [x] Oct 17, 2025: [VACE-Benchmark](https://huggingface.co/datasets/ali-vilab/VACE-Benchmark) has been updated to incorporate the evaluation data. [VACE-Page](https://ali-vilab.github.io/VACE-Page/) also features creative community cases, offering researchers and community members better project insight and tracking.
+- [x] Jun 26, 2025: [VACE](https://openaccess.thecvf.com/content/ICCV2025/html/Jiang_VACE_All-in-One_Video_Creation_and_Editing_ICCV_2025_paper.html) is accepted by ICCV 2025.
 - [x] May 14, 2025: 🔥Wan2.1-VACE-1.3B and Wan2.1-VACE-14B models are now available at [HuggingFace](https://huggingface.co/Wan-AI/Wan2.1-VACE-14B) and [ModelScope](https://www.modelscope.cn/models/Wan-AI/Wan2.1-VACE-14B)!
 - [x] Mar 31, 2025: 🔥VACE-Wan2.1-1.3B-Preview and VACE-LTX-Video-0.9 models are now available at [HuggingFace](https://huggingface.co/collections/ali-vilab/vace-67eca186ff3e3564726aff38) and [ModelScope](https://modelscope.cn/collections/VACE-8fa5fcfd386e43)!
 - [x] Mar 31, 2025: 🔥Release code of model inference, preprocessing, and gradio demos. 
@@ -181,9 +184,10 @@ We are grateful for the following awesome projects, including [Scepter](https://
 ## BibTeX
 
 ```bibtex
-@article{vace,
+@inproceedings{vace,
     title = {VACE: All-in-One Video Creation and Editing},
     author = {Jiang, Zeyinzi and Han, Zhen and Mao, Chaojie and Zhang, Jingfeng and Pan, Yulin and Liu, Yu},
-    journal = {arXiv preprint arXiv:2503.07598},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
+    pages = {17191-17202},
     year = {2025}
 }
