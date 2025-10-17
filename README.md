@@ -35,7 +35,7 @@
 ## 🎉 News
 - [x] Oct 17, 2025: [VACE-Benchmark](https://huggingface.co/datasets/ali-vilab/VACE-Benchmark) has been updated to incorporate the evaluation data. [VACE-Page](https://ali-vilab.github.io/VACE-Page/) also features creative community cases, offering researchers and community members better project insight and tracking.
 - [x] Jun 26, 2025: [VACE](https://openaccess.thecvf.com/content/ICCV2025/html/Jiang_VACE_All-in-One_Video_Creation_and_Editing_ICCV_2025_paper.html) is accepted by ICCV 2025.
-- [x] May 14, 2025: 🔥Wan2.1-VACE-1.3B and Wan2.1-VACE-14B models are now available at [HuggingFace](https://huggingface.co/Wan-AI/Wan2.1-VACE-14B) and [ModelScope](https://www.modelscope.cn/models/Wan-AI/Wan2.1-VACE-14B)!
+- [x] May 14, 2025: 🔥Wan2.1-VACE-1.3B and Wan2.1-VACE-14B models are now available at [HuggingFace](https://huggingface.co/collections/Wan-AI/wan21-68ac4ba85372ae5a8e282a1b) and [ModelScope](https://modelscope.cn/collections/tongyiwanxiang-Wan21-shipinshengcheng-67ec9b23fd8d4f)!
 - [x] Mar 31, 2025: 🔥VACE-Wan2.1-1.3B-Preview and VACE-LTX-Video-0.9 models are now available at [HuggingFace](https://huggingface.co/collections/ali-vilab/vace-67eca186ff3e3564726aff38) and [ModelScope](https://modelscope.cn/collections/VACE-8fa5fcfd386e43)!
 - [x] Mar 31, 2025: 🔥Release code of model inference, preprocessing, and gradio demos. 
 - [x] Mar 11, 2025: We propose [VACE](https://ali-vilab.github.io/VACE-Page/), an all-in-one model for video creation and editing.
@@ -178,7 +178,7 @@ python vace/gradios/vace_ltx_demo.py
 
 ## Acknowledgement
 
-We are grateful for the following awesome projects, including [Scepter](https://github.com/modelscope/scepter), [Wan](https://github.com/Wan-Video/Wan2.1), and [LTX-Video](https://github.com/Lightricks/LTX-Video).
+We are grateful for the following awesome projects, including [Scepter](https://github.com/modelscope/scepter), [Wan](https://github.com/Wan-Video/Wan2.1), and [LTX-Video](https://github.com/Lightricks/LTX-Video). Additionally, we extend our deepest gratitude to all community creators. It is their proactive exploration, experimentation, and boundless creativity that have brought immense inspiration to the project, fostering the emergence of even more refined workflows and stunning video generation content based on it. This includes, but is not limited to: [Kijai's Workflow](https://github.com/kijai/ComfyUI-WanVideoWrapper), native code support for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) and [Diffusers](https://github.com/huggingface/diffusers), crucial model quantization support, a diverse ecosystem of LoRA adapters, and the ever-evolving innovative workflows from our community members.
 
 
 ## BibTeX
