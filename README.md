@@ -22,6 +22,7 @@
         <a href="https://ali-vilab.github.io/VACE-Page/"><img src='https://img.shields.io/badge/VACE-Project_Page-green' alt='Project Page'></a>
         <a href="https://huggingface.co/collections/ali-vilab/vace-67eca186ff3e3564726aff38"><img src='https://img.shields.io/badge/VACE-HuggingFace_Model-yellow'></a>
         <a href="https://modelscope.cn/collections/VACE-8fa5fcfd386e43"><img src='https://img.shields.io/badge/VACE-ModelScope_Model-purple'></a>
+        <a href="https://cloud.swmgpu.com/w/samofvaani/wan-vace-video-editor"><img src='https://img.shields.io/badge/VACE-swm_cloud-blue' alt='swm cloud'></a>
     <br>
 </p>
 
