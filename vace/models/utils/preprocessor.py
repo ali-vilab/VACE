@@ -157,7 +157,7 @@ class VaceVideoProcessor(object):
 
         area_z = min(self.seq_len, self.max_area / (dh * dw), (h // dh) * (w // dw))
         of = min(
-            (int(duration * target_fps) - 1) // df + 1,
+            (max(1, int(duration * target_fps)) - 1) // df + 1,
             int(self.seq_len / area_z)
         )
 
@@ -171,7 +171,7 @@ class VaceVideoProcessor(object):
 
         # sample frame ids
         target_duration = of / target_fps
-        begin = 0. if self.zero_start else rng.uniform(0, duration - target_duration)
+        begin = 0. if self.zero_start else rng.uniform(0, max(0, duration - target_duration))
         timestamps = np.linspace(begin, begin + target_duration, of)
         frame_ids = np.argmax(np.logical_and(
             timestamps[:, None] >= frame_timestamps[None, :, 0],
